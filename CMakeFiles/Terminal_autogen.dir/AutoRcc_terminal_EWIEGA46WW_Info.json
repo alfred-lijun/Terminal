@@ -1,0 +1,37 @@
+{
+	"BUILD_DIR" : "D:/Qt/workplace/Terminal/Terminal_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Qt/workplace/Terminal",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Qt/workplace/Terminal",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Qt/workplace/Terminal",
+	"CMAKE_SOURCE_DIR" : "D:/Qt/workplace/Terminal",
+	"INCLUDE_DIR" : "D:/Qt/workplace/Terminal/Terminal_autogen/include",
+	"INPUTS" : 
+	[
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration-bash.sh",
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration-clink.lua",
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration-profile.zsh",
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration-env.zsh",
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration.ps1",
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration.fish",
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration-rc.zsh",
+		"D:/Qt/workplace/Terminal/shellintegrations/shellintegration-login.zsh",
+		"D:/Qt/workplace/Terminal/images/keyboardlock@2x.png",
+		"D:/Qt/workplace/Terminal/images/iconoverlay_close_small.png",
+		"D:/Qt/workplace/Terminal/images/settingscategory_terminal@2x.png",
+		"D:/Qt/workplace/Terminal/images/terminal@2x.png",
+		"D:/Qt/workplace/Terminal/images/settingscategory_terminal.png",
+		"D:/Qt/workplace/Terminal/images/keyboardlock.png",
+		"D:/Qt/workplace/Terminal/images/iconoverlay_add_small.png",
+		"D:/Qt/workplace/Terminal/images/terminal.png"
+	],
+	"LOCK_FILE" : "D:/Qt/workplace/Terminal/CMakeFiles/Terminal_autogen.dir/AutoRcc_terminal_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "terminal" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_terminal.cpp",
+	"RCC_EXECUTABLE" : "D:/Qt/Qt6.4.3/6.2.3/msvc2019_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "D:/Qt/workplace/Terminal/CMakeFiles/Terminal_autogen.dir/AutoRcc_terminal_EWIEGA46WW_Used.txt",
+	"SOURCE" : "D:/Qt/workplace/Terminal/terminal.qrc",
+	"VERBOSITY" : 0
+}

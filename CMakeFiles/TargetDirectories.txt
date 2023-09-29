@@ -1,0 +1,8 @@
+D:/Qt/workplace/Terminal/CMakeFiles/Terminal.dir
+D:/Qt/workplace/Terminal/CMakeFiles/edit_cache.dir
+D:/Qt/workplace/Terminal/CMakeFiles/rebuild_cache.dir
+D:/Qt/workplace/Terminal/CMakeFiles/list_install_components.dir
+D:/Qt/workplace/Terminal/CMakeFiles/install.dir
+D:/Qt/workplace/Terminal/CMakeFiles/install/local.dir
+D:/Qt/workplace/Terminal/CMakeFiles/Terminal_autogen_timestamp_deps.dir
+D:/Qt/workplace/Terminal/CMakeFiles/Terminal_autogen.dir
