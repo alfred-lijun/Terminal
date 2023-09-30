@@ -8,6 +8,6 @@
     "Description" : "Put a short description of your plugin here",
     "Url" : "https://www.bbk.com",
     "Dependencies" : [
-        { "Name" : "Core", "Version" : "7.0.2" }
+        { "Name" : "Core", "Version" : "5.0.3" }
     ]
 }

@@ -1,5 +1,13 @@
 #include "terminalwidget.h"
 #include <QDebug>
+#include <coreplugin/icore.h>
+#include <coreplugin/icontext.h>
+#include <coreplugin/actionmanager/actionmanager.h>
+#include <coreplugin/actionmanager/command.h>
+#include <coreplugin/actionmanager/actioncontainer.h>
+#include <coreplugin/coreconstants.h>
+#include <coreplugin/messagemanager.h>
+
 TerminalWidget::TerminalWidget()
 {
     setAttribute(Qt::WA_InputMethodEnabled);
@@ -9,7 +17,7 @@ TerminalWidget::TerminalWidget()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     setWindowTitle("cmd");
     font.setFamily("consolas");
-    font.setPointSize(12);
+    font.setPointSize(10);
     setFont(font);
     setTextColor(Qt::black);
     proc = new QProcess();
@@ -47,6 +55,7 @@ void TerminalWidget::keyPressEvent(QKeyEvent *e)
         lastInput =  string.toLocal8Bit() + '\n';
 #endif
         proc->write(lastInput);
+        Core::MessageManager::writeSilently("input: " + QString::fromStdString(lastInput.constData()));
         if(string == "cls"){
             clear();
         }
@@ -62,12 +71,19 @@ void TerminalWidget::keyPressEvent(QKeyEvent *e)
 void TerminalWidget::readyReadStandardOutputSlot()
 {
     QByteArray ba = proc->readAllStandardOutput();
-    QTextCodec * textCodec = QTextCodec::codecForName("System");// assert 断言，如果 textCodec 为空，则编译报错
-    assert(textCodec != nullptr);
-    QString output = textCodec->toUnicode(ba);
-    if (output.length() > 0 && output != QString::fromLocal8Bit(lastInput)){
+    QString output = QString::fromStdString(ba.constData());
+    if(output.length() == 1){
+        preSingal = output;
+        return;
+    }
+    if(!preSingal.isEmpty()){
+        output = preSingal + output;
+        preSingal.clear();
+    }
+    if (output.length() > 0 && output != QString::fromStdString(lastInput.constData())){
         setTextColor(Qt::black);
         append(output.trimmed());
+        Core::MessageManager::writeSilently("output: " + output.trimmed());
         moveCursor(QTextCursor::End);
         lastPosition = textCursor().position();
     }
@@ -75,12 +91,11 @@ void TerminalWidget::readyReadStandardOutputSlot()
 
 void TerminalWidget::readyReadStandardErrorSlot(){
     QByteArray ba = proc->readAllStandardError();
-    QTextCodec* textCodec = QTextCodec::codecForName("System");// assert 断言，如果 textCodec 为空，则编译报错
-    assert(textCodec != nullptr);
-    QString output = textCodec->toUnicode(ba);
-    if (output.length() > 0 && output != QString::fromLocal8Bit(lastInput)){
+    QString output = QString::fromStdString(ba.constData());
+    if (output.length() > 0 && output != QString::fromStdString(lastInput.constData())){
         setTextColor(Qt::black);
         append(output.trimmed());
+        Core::MessageManager::writeSilently("output: " + output.trimmed());
         moveCursor(QTextCursor::End);
         lastPosition = textCursor().position();
     }

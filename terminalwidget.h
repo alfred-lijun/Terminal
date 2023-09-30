@@ -22,14 +22,16 @@ public:
     void zoomOut();
 protected:
     void keyPressEvent(QKeyEvent *e);
-private:// 字体
-        QFont font;
-        // 命令行终端进程
-        QProcess * proc;
-        // 光标位置
-        long long lastPosition = 0;
-        // 上一次的输入内容
-        QByteArray lastInput;
+private:
+    // 字体
+    QFont font;
+    // 命令行终端进程
+    QProcess * proc;
+    // 光标位置
+    long long lastPosition = 0;
+    // 上一次的输入内容
+    QByteArray lastInput;
+    QString preSingal;
 public slots:
     /*** @brief readyReadStandardOutputSlot       标准输出*/
     void readyReadStandardOutputSlot();
